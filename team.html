@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+    <meta content="coaching, bussines" name="Keywords">
+    <title>machbar team | Machbar</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+
+			$(document).ready(function() {		
+
+				//Execute the slideShow
+				slideShow();
+
+			});
+
+			function slideShow() {
+
+				//Set the opacity of all images to 0
+				$('#gallery a').css({opacity: 0.0});
+
+				//Get the first image and display it (set it to full opacity)
+				$('#gallery a:first').css({opacity: 1.0});
+
+				//Set the caption background to semi-transparent
+				$('#gallery .caption').css({opacity: 0.7});
+
+				//Resize the width of the caption according to the image width
+				$('#gallery .caption').css({width: $('#gallery a').find('img').css('width')});
+
+				//Get the caption of the first image from REL attribute and display it
+				$('#gallery .content').html($('#gallery a:first').find('img').attr('rel'))
+				.animate({opacity: 0.7}, 400);
+
+				//Call the gallery function to run the slideshow, 6000 = change to next image after 10 seconds
+				setInterval('gallery()',10000);
+
+			}
+
+			function gallery() {
+
+				//if no IMGs have the show class, grab the first image
+				var current = ($('#gallery a.show')?  $('#gallery a.show') : $('#gallery a:first'));
+
+				//Get next image, if it reached the end of the slideshow, rotate it back to the first image
+				var next = ((current.next().length) ? ((current.next().hasClass('caption'))? $('#gallery a:first') :current.next()) : $('#gallery a:first'));	
+
+				//Get next image caption
+				var caption = next.find('img').attr('rel');	
+
+				//Set the fade in effect for the next image, show class has higher z-index
+				next.css({opacity: 0.0})
+				.addClass('show')
+				.animate({opacity: 1.0}, 1000);
+
+				//Hide the current image
+				current.animate({opacity: 0.0}, 1000)
+				.removeClass('show');
+
+				//Set the opacity to 0 and height to 1px
+				$('#gallery .caption').animate({opacity: 0.0}, { queue:false, duration:0 }).animate({height: '1px'}, { queue:true, duration:300 });	
+
+				//Animate the caption, opacity to 0.7 and heigth to 75px, a slide up effect
+				$('#gallery .caption').animate({opacity: 0.7},100 ).animate({height: '75px'},500 );
+
+				//Display the content
+				$('#gallery .content').html(caption);
+
+
+			}
+
+			</script>
+  </head>
+  <body>
+    <div id="wrapper">
+		<div><a href="index.html"><img src="images/logo_header.png"/></a>
+      <div id="gallery">
+		<a href="index.html" class="show"><img src="images/header01.jpg" alt="Philosophie und Team" title="" rel="&lt;h3&gt;»Es ist nicht genug zu wissen, man muss es auch anwenden. Es ist nicht genug zu wollen, man muss es auch tun!«&lt;/h3&gt;Johann Wolfgang von Goethe" height="300" width="950"></a>
+    <a href="index.html"><img src="images/header02.jpg" alt="machbar coaching" title="" rel="&lt;h3&gt;»Auch eine Reise von tausend Meilen beginnt mit dem ersten Schritt.«&lt;/h3&gt;Chinesisches Sprichwort" height="300" width="950"></a>
+	<a href="index.html"><img src="images/header03.jpg" alt="machbar coaching" title="" rel="&lt;h3&gt;»Man kann einen Menschen nichts lehren, man kann ihm nur helfen, es in sich selbst zu entdecken«&lt;/h3&gt;Galileo Galilei" height="300" width="950"></a>
+	<a href="index.html"><img src="images/header04.jpg" alt="machbar coaching" title="" rel="&lt;h3&gt;»Damit das Mögliche entsteht, muss immer wieder das Unmögliche versucht werden.«&lt;/h3&gt;Herman Hesse" height="300" width="950"></a>
+	<a href="index.html"><img src="images/header05.jpg" alt="machbar coaching" title="" rel="&lt;h3&gt;»Seien wir realistisch, versuchen wir das Unmögliche.«&lt;/h3&gt;Che Guevara" height="300" width="950"></a>
+	<a href="index.html"><img src="images/header06.jpg" alt="machbar coaching" title="" rel="&lt;h3&gt;»Ein kreativer Mensch ist primitiver und kultivierter, destruktiver und konstruktiver, sehr viel verrückter und sehr viel vernünftiger als der Durchschnittsmensch.«&lt;/h3&gt;Viktor Frankl" height="300" width="950"></a>
+	<a href="index.html"><img src="images/header07.jpg" alt="machbar coaching" title="" rel="&lt;h3&gt;»Die reinste Form des Wahnsinns ist es, alles beim Alten zu lassen und gleichzeitig zu hoffen, dass sich etwas ändert.«&lt;/h3&gt;Albert Einstein" height="300" width="950"></a>
+        <div class="caption">
+          <div class="content"></div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div id="content_navi">
+        <div id="team">
+		  <p class="privat"><a href="nutzen.html"></a></p>
+          <p class="business"><a href="team.html"></a></p>
+		  <p class="philosophie"><a href="coaching.html"></a></p>
+          <p class="download"><a href="download.html"></a></p>
+          <p class="kontakt"><a href="kontakt.html"></a></p>
+        </div>
+      </div>
+      <div id="content">
+        <h1>machbar team</h1>
+<div id="item_team">
+        <div id="img_right"><img src="images/machbar_coaching_christian_gennat_02.png" alt="Ziel"></div>
+<h2>Christian Gennat</h2>
+<h3>Systemischer Coach, Leiter Vertrieb, Kundenberatung und Trainer</h3>
+        <p>Warum bin ich Coach geworden? Ganz einfach - es macht mir Spaß! </p>
+		<p>Meine persönlichen Erfahrungen aus umfangreichen Fortbildungen in der Personal- & Persönlichkeitsentwicklung,
+		sowie durch meine tägliche Berufspraxis als Coach, Trainer und freiberuflicher Leiter des Kundenservice der "Akademie für Training & Entwicklung" 
+		möchte ich für meine Coaching Klienten zugänglich machen.</p>
+		
+		<p>Der Mensch steht in all meinem beruflichen Tun für mich im Mittelpunkt.</p>
+		<p>Nach dem Prinzip - "es gibt für alles eine Lösung" ...</p>
+		<p>... können alle meine Klienten & Teilnehmer im geschützten Rahmen Dinge ausprobieren und mehr über sich und ihre individuellen Programme erfahren.</p> 
+		<p>Als Coach stehe hierbei meinen Klienten als unabhängiger Beobachter und Begleiter bei ihren Themen und Prozessen zur Verfügung und ermögliche ihnen, 
+		ihre Welt aus anderen Perspektiven zu betrachten, neue Handlungsspielräume zu gewinnen, sowie ihre eigenen Lösungen zu entwickeln.</p>
+		
+		<h2>Qualifizierung<h2/>
+        <ul>
+          <li>systemischer Coach & Berater</li>
+          <li>Vertriebsprofil unter anderem für Firmen wie Douglas, Seitz Stiftung, Santander uvm.</li>
+          <li>Ausbildung bei einem marktführenden deutschen Versicherungsunternehmen</li>
+		<li>Ausbildung Trainer für Personalentwicklung</li>
+		<li>Weiterbildung zum Bewerbungs- & Schulservicetrainer</li>
+		<li>Qualifikation zur Durchführung & Auswahl bei Assessmentcentern</li>
+		<li>Fortbildung zum Teamcoach</li>
+		<li>Persönliche Erfahrungen als Mensch & selbstständiger Unternehmer</li>
+        </ul>
+</div>
+<div id="item_2">
+        <div id="img_team_left"><img src="images/tobias_eding_02.png" alt="Ziel"></div>
+			<h2>Tobias Eding</h2>
+			<h3>Gestalttherapeutischer Berater, Systemischer Coach, Bachelor of Education</h3>
+			        <p>Mich faszinieren im Coachingprozess die Türen, die sich öffnen mit denen man nicht gerechnet hat. 
+			        Kreative Ideen, neue Impulse und ein bewussteres Erleben können im Coaching entstehen und neue Wege für Veränderungen bahnen. 
+					In diesem Prozess unterstützen mich eine gute Portion Neugier, meine Arbeitspraxis und langjährige Fortbildungen im Bereich Beratung, Therapie und Bildung.</p>
+					<p>Ich unterstütze meine Klienten, 
+						ihre Bewusstheit und damit ihre Handlungsmöglichkeiten zu erweitern,
+    					Lösungen für ihre Anliegen zu finden und
+    					Handlungsschritte für ihre Ziele zu erarbeiten.
+					</p>
+
+					<h2>Qualifizierung<h2/>
+			        <ul>
+			          <li>Weiterbildung in Gestalttherapie- und beratung beim IGW (3 Jahre)</li>
+			          <li>Fortbildung in Systemischen Coaching bei SiegerConsulting</li>
+			          <li>Arbeit als Dipl.-Ing. (FH) Elektro- und Informationstechnik</li>
+					<li>1 Jahr Auslandsaufenthalt in Großbritannien (Surrey, Ulster)</li>
+					<li>Studium an der TU München mit Abschluss Bachelor of Education</li>
+					<li>Persönliche Erfahrungen als Ehemann & Vater</li>
+			        </ul>
+			</div>
+       </div>
+        <div id="footer">
+          <p>© 2013 Machbar-Web | <a target="_blank" title="Impressum" href="impressum.html">Impressum</a></p>
+        </div>
+      </div>
+    </div>
+</div>
+  </body>
+</html>

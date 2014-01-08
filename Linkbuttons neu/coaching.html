@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+    <meta content="coaching, team, philosophie" name="Keywords">
+    <title>coaching und beratung | Machbar</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+
+			$(document).ready(function() {		
+
+				//Execute the slideShow
+				slideShow();
+
+			});
+
+			function slideShow() {
+
+				//Set the opacity of all images to 0
+				$('#gallery a').css({opacity: 0.0});
+
+				//Get the first image and display it (set it to full opacity)
+				$('#gallery a:first').css({opacity: 1.0});
+
+				//Set the caption background to semi-transparent
+				$('#gallery .caption').css({opacity: 0.7});
+
+				//Resize the width of the caption according to the image width
+				$('#gallery .caption').css({width: $('#gallery a').find('img').css('width')});
+
+				//Get the caption of the first image from REL attribute and display it
+				$('#gallery .content').html($('#gallery a:first').find('img').attr('rel'))
+				.animate({opacity: 0.7}, 400);
+
+				//Call the gallery function to run the slideshow, 6000 = change to next image after 10 seconds
+				setInterval('gallery()',10000);
+
+			}
+
+			function gallery() {
+
+				//if no IMGs have the show class, grab the first image
+				var current = ($('#gallery a.show')?  $('#gallery a.show') : $('#gallery a:first'));
+
+				//Get next image, if it reached the end of the slideshow, rotate it back to the first image
+				var next = ((current.next().length) ? ((current.next().hasClass('caption'))? $('#gallery a:first') :current.next()) : $('#gallery a:first'));	
+
+				//Get next image caption
+				var caption = next.find('img').attr('rel');	
+
+				//Set the fade in effect for the next image, show class has higher z-index
+				next.css({opacity: 0.0})
+				.addClass('show')
+				.animate({opacity: 1.0}, 1000);
+
+				//Hide the current image
+				current.animate({opacity: 0.0}, 1000)
+				.removeClass('show');
+
+				//Set the opacity to 0 and height to 1px
+				$('#gallery .caption').animate({opacity: 0.0}, { queue:false, duration:0 }).animate({height: '1px'}, { queue:true, duration:300 });	
+
+				//Animate the caption, opacity to 0.7 and heigth to 75px, a slide up effect
+				$('#gallery .caption').animate({opacity: 0.7},100 ).animate({height: '75px'},500 );
+
+				//Display the content
+				$('#gallery .content').html(caption);
+
+
+			}
+
+			</script>
+  </head>
+  <body>
+    <div id="wrapper">
+			<div><a href="index.html"><img src="images/logo_header.png"/></a>
+      <div id="gallery">
+		<a href="index.html" class="show"><img src="images/header01.jpg" alt="Philosophie und Team" title="" rel="&lt;h3&gt;Es ist nicht genug zu wissen, man muss es auch anwenden. Es ist nicht genug zu wollen, man muss es auch tun!Ç&lt;/h3&gt;Johann Wolfgang von Goethe" height="300" width="950"></a>
+	    <a href="index.html"><img src="images/header02.jpg" alt="Philosophie und Team" title="" rel="&lt;h3&gt;Man kann einen Menschen nichts lehren, man kann ihm nur helfen, es in sich selbst zu entdeckenÇ&lt;/h3&gt;Galileo Galilei" height="300" width="950"></a>
+		<a href="index.html"><img src="images/header03.jpg" alt="Philosophie und Team" title="" rel="&lt;h3&gt;Die reinste Form des Wahnsinns ist es, alles beim Alten zu lassen und gleichzeitig zu hoffen, dass sich etwas Šndert.Ç&lt;/h3&gt;Albert Einstein" height="300" width="950"></a>
+		<a href="index.html"><img src="images/header04.jpg" alt="Philosophie und Team" title="" rel="&lt;h3&gt;Man kann einen Menschen nichts lehren, man kann ihm nur helfen, es in sich selbst zu entdeckenÇ&lt;/h3&gt;Galileo Galilei" height="300" width="950"></a>
+		<a href="index.html"><img src="images/header05.jpg" alt="Philosophie und Team" title="" rel="&lt;h3&gt;ÈMan kann einen Menschen nichts lehren, man kann ihm nur helfen, es in sich selbst zu entdeckenÇ&lt;/h3&gt;Galileo Galilei" height="300" width="950"></a>
+		<a href="index.html"><img src="images/header06.jpg" alt="Philosophie und Team" title="" rel="&lt;h3&gt;ÈMan kann einen Menschen nichts lehren, man kann ihm nur helfen, es in sich selbst zu entdeckenÇ&lt;/h3&gt;Galileo Galilei" height="300" width="950"></a>
+		<a href="index.html"><img src="images/header07.jpg" alt="Philosophie und Team" title="" rel="&lt;h3&gt;ÈMan kann einen Menschen nichts lehren, man kann ihm nur helfen, es in sich selbst zu entdeckenÇ&lt;/h3&gt;Galileo Galilei" height="300" width="950"></a>
+        <div class="caption">
+          <div class="content"></div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div id="content_navi">
+        <div id="team">
+		  <p class="privat"><a href="nutzen.html"></a></p>
+          <p class="business"><a href="team.html"></a></p>
+		  <p class="philosophie"><a href="coaching.html"></a></p>
+          <p class="download"><a href="download.html"></a></p>
+          <p class="kontakt"><a href="kontakt.html"></a></p>
+        </div>
+      </div>
+      <div id="content">
+	<div id="item_coaching">
+				<div id="img_coaching_right"><img src="images/machbar_coaching_02.png" alt="Ziel"></div>
+				<h1>Was ist eigentlich Coaching?</h1>
+				<p>Coaching ist ein schillernder Begriff, der in vielen Zusammenhängen ganz unterschiedlich genutzt wird. Um etwas mehr Klarheit über die Bedeutung des Coaching zu bekommen, lohnt sich ein Blick in die Vergangenheit. Coach bedeutet auf englisch „Kutsche“ Das Bild der Kutsche vermittelt einen wesentlichen Kern von Coaching: Die Kutsche oder Coaching ist ein Hilfsmittel, um sich auf den Weg zu machen und ein Ziel zu erreichen.</p>
+				<p>Unter Coaching verstehen unsere „machbar Coaches“ eine Kombination aus individueller Beratung, persönlichem Feedback und praxisorientiertem Training. Im persönlichen Coaching mit uns werden Fragestellungen behandelt, die Ihre berufliche & private Rolle sowie Ihre Persönlichkeit betreffen. </p>
+				<p>Etwas (fachlich) detaillierter:</p>
+				<p>Coaching ist ein Beratungsprozess, bei dem die berufliche & private Rolle, und damit zusammenhängende aktuelle Anliegen des Klienten im Vordergrund stehen. 
+				Ziel ist es, die eigene Handlungskompetenz im beruflichen & privaten Kontext (wieder-) herzustellen & zu steigern.
+				Wir als Coach begleiten Sie als Partner im Dialog. Sie als Klient sind Experte im Inhalt während wir als Coach für die Prozessgestaltung zuständig sind. Unser Ziel ist es, Ihre Lösungsorientierung zu fördern, und Ihnen professionelle Handlungsalternativen zu entwickeln.</p>
+				<p>Das wichtigste am Coachingprozess 
+				ist gegenseitige Akzeptanz, Sympathie & Vertrauen“</p>
+</div>
+<div id="item_coaching_2">
+				<div id="img_coaching_left"><img src="images/coaching_schaubild.png" alt="Ziel"></div>
+				<h1>Wie läuft ein Coachinggespräch ab?</h1>
+        <p>		Coaching beginnt mit einem Erstgespräch, das ca. 90 Minuten dauert.
+				Hier haben Coach und Klient die Möglichkeit, sich persönlich kennenzulernen und herauszufinden, ob sie zusammenpassen, und sich auf diesen Prozess einlassen können.
+				Ein Gespräch dauert zwischen 60 und 90 Minuten.
+				In dieser Zeit wird das aktuelle Anliegen meist komplett bearbeitet.
+				In einem Folgecoaching geht es in der Regel um ein neues oder aus der Lösung abgeleitetes Thema. Unser Coaching findet in mehreren Sitzungen statt und ist zeitlich begrenzt.
+				Jeder Coachingprozess hat ein Abschlussgespräch, in dem es darum geht, das erreichte/veränderte Ziel/Verhalten zu stabilisieren und den Coachingprozess hinsichtlich seiner Wirksamkeit zu bewerten. (Siehe Schaubild)
+		</p>
+</div>
+		<div id="img_right"><img src="images/machbar_coaching_zielgruppe_02.png" alt="Ziel"></div>
+		<h1>Wer lässt sich coachen, und was hat das für einen Sinn?</h1>
+		<p>
+			Jeder kann sich coachen lassen! <br/>
+			Gerade im Geschäfts- & Privatleben gibt es viele Situationen und Themen die sich nicht von selbst auflösen. Es gibt Situationen in denen wir derart "verstrickt" sind, so dass eine Lösung zu finden, schwer möglich erscheint.<br/>
+			Zum Beispiel ist ein Grund, Coaching in Anspruch zu nehmen, ein Mangel an Rückmeldung (=Feedback) über das eigene Verhalten, was ein unrealistisches Selbstbild, berufliche Orientierungsschwierigkeiten und alle darauf aufbauenden Probleme zur Folge haben kann <br/>
+			(wie beispielsweise Schwierigkeiten die immer nach demselben Muster ablaufen, Entscheidungs- oder Führungsprobleme, Konflikte, Karrierestillstand, Motivationsdefizit, Überforderung, Leistungsabfall uvm.).
+		</p>
+		</div>
+        <div id="footer">
+          <p>© 2013 Machbar-Web | <a target="_blank" title="Impressum" href="impressum.html">Impressum</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
